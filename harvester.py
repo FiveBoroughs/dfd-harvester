@@ -58,7 +58,7 @@ for acct in accounts:
     ilmo_rewards_balance = dfd_ilmo_rew_pool.withdrawAble(
         acct)*0.58 + dfd_ilmo_rew_pool.earned(acct)
     print('Ilmo balance', ilmo_rewards_balance / pow(10, token_DFD.decimals()))
-    if(ilmo_rewards_balance > DFD_THRESHOLD):
+    if(ilmo_rewards_balance > DFD_THRESHOLD * pow(10, token_DFD.decimals())):
         print('claiming ilmo')
         tx_dfd_ILMO_claim = dfd_ilmo_rew_pool.exit({'from': acct})
 
